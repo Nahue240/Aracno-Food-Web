@@ -100,7 +100,7 @@ const EXTRAS = TOPPINGS.flatMap((t) =>
 
 const DELIVERY = {
   centro: { label: "Entrega en zona centro", emoji: "📍", msg: "zona centro" },
-  coordinar: { label: "Coordinar envío", emoji: "🚚", msg: "coordinar envío (puede haber cargos extra)" },
+  coordinar: { label: "Coordinar envío", emoji: "🚚", msg: "coordinar envío" },
 };
 
 // Fotos de los marcos (carrusel). Están en la carpeta "imagenes".
