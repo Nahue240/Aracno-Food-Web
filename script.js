@@ -7,7 +7,7 @@ const CONFIG = {
   whatsapp: "5493876181583", // 54 (Argentina) + 9 + 387 (Salta) + 6181583
   whatsappDisplay: "387 618-1583",
   currency: "$",
-  extraToppingPrice: 500, // precio de cada Topping Extra
+  extraToppingPrice: 2000, // precio de cada Topping Extra
   wholesaleMinKg: 5,
 };
 
@@ -100,7 +100,7 @@ const EXTRAS = TOPPINGS.flatMap((t) =>
 
 const DELIVERY = {
   centro: { label: "Entrega en zona centro", emoji: "📍", msg: "zona centro" },
-  coordinar: { label: "Coordinar envío", emoji: "🚚", msg: "coordinar envío" },
+  coordinar: { label: "Coordinar envío", emoji: "🚚", msg: "coordinar envío (puede haber cargos extra)" },
 };
 
 // Fotos de los marcos (carrusel). Están en la carpeta "imagenes".
@@ -526,7 +526,7 @@ function buildMessage() {
   const list = units();
   const n = list.length;
   const lines = [
-    `¡Hola Aracno Food! Quiero hacer un pedido de ${weightText(totalGrams())} de yogur (${n} pote${n !== 1 ? "s" : ""}):`,
+    `¡Hola Nahuel! Quiero hacer un pedido de ${weightText(totalGrams())} de yogur (${n} pote${n !== 1 ? "s" : ""}):`,
     "",
   ];
   list.forEach((u, i) =>
@@ -730,7 +730,7 @@ $("#productGrid").addEventListener("click", (e) => {
 
 /* ---------------- INICIO ---------------- */
 function init() {
-  const generic = wspLink("¡Hola Aracno Food! Quisiera hacer una consulta.");
+  const generic = wspLink("¡Hola Nahuel! Quisiera hacer una consulta.");
   $("#footerWsp").href = generic;
   $("#footerWsp").textContent = `WhatsApp: ${CONFIG.whatsappDisplay}`;
   $("#year").textContent = new Date().getFullYear();
