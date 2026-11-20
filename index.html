@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aracno Food | Yogur natural y griego artesanal</title>
+  <meta name="description" content="Yogur natural y griego artesanal. Pedí por WhatsApp con tus toppings favoritos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/png" href="imagenes/logo_aracno.png">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- ============ CABECERA ============ -->
+  <header class="header">
+    <div class="container header__inner">
+      <a href="#inicio" class="logo" aria-label="Aracno Food - Inicio" data-cat="todos">
+        <img class="logo__img" src="imagenes/logo_aracno.png" alt="Aracno Food" width="56" height="56">
+        <span class="logo__text">Aracno<strong>Food</strong></span>
+      </a>
+
+      <form class="search" role="search" id="searchForm">
+        <input type="search" id="searchInput" placeholder="Buscar yogur natural, griego, 500 gr..." aria-label="Buscar productos" autocomplete="off">
+        <button type="submit" aria-label="Buscar">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+        </button>
+      </form>
+    </div>
+  </header>
+
+  <!-- ============ NAVEGACIÓN SECUNDARIA ============ -->
+  <nav class="nav" aria-label="Categorías">
+    <div class="container">
+      <ul class="nav__list" id="navList">
+        <li><a href="#inicio" class="nav__link is-active" data-cat="todos">Inicio</a></li>
+        <li><a href="#productos" class="nav__link" data-cat="natural">Yogur Natural</a></li>
+        <li><a href="#productos" class="nav__link" data-cat="griego">Yogur Griego</a></li>
+        <li><a href="#mayoristas" class="nav__link" data-cat="mayorista">Mayoristas</a></li>
+        <li><a href="#contacto" class="nav__link" data-cat="contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="inicio">
+
+    <!-- ============ HERO ============ -->
+    <section class="hero">
+      <div class="container hero__inner">
+        <div class="hero__text">
+          <span class="badge">Artesanal · Sin conservantes</span>
+          <h1>Yogur natural y griego <em>de verdad</em>, hecho con tiempo y cuidado.</h1>
+          <p>Cremoso, fresco y elaborado en pequeños lotes. Elegí tu tamaño, sumá tus toppings favoritos y pedí directo por WhatsApp.</p>
+          <div class="hero__cta">
+            <a href="#productos" class="btn btn--primary" data-cat="todos">Ver productos</a>
+            <a href="#mayoristas" class="btn btn--ghost" data-cat="mayorista">Compra mayorista</a>
+          </div>
+        </div>
+
+        <div class="hero__visual" aria-hidden="true">
+          <!-- Reemplazá estos bloques por fotos reales: <img src="img/hero-1.jpg" alt="..."> -->
+          <div class="hero__photo hero__photo--a">
+            <svg viewBox="0 0 120 140"><use href="#jar-natural"/></svg>
+            <span>Natural</span>
+          </div>
+          <div class="hero__photo hero__photo--b">
+            <svg viewBox="0 0 120 140"><use href="#jar-griego"/></svg>
+            <span>Griego</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BENEFICIOS ============ -->
+    <section class="perks">
+      <div class="container perks__grid">
+        <div class="perk"><span class="perk__icon">🥛</span><div><strong>100% artesanal</strong><small>Elaborado en pequeños lotes</small></div></div>
+        <div class="perk"><span class="perk__icon">🍓</span><div><strong>1 topping sin cargo</strong><small>Por cada pote que pidas</small></div></div>
+        <div class="perk"><span class="perk__icon">📦</span><div><strong>Venta mayorista</strong><small>Desde 5 kg</small></div></div>
+        <div class="perk"><span class="perk__icon">💬</span><div><strong>Pedido por WhatsApp</strong><small>Rápido y sin vueltas</small></div></div>
+      </div>
+    </section>
+
+    <!-- ============ PRODUCTOS ============ -->
+    <section class="products" id="productos">
+      <div class="container">
+        <div class="products__head">
+          <h2 id="productsTitle">Nuestros productos</h2>
+          <span class="products__count" id="productsCount"></span>
+        </div>
+        <div class="grid" id="productGrid"></div>
+        <p class="empty" id="emptyMsg" hidden>No encontramos productos con esa búsqueda. Probá con "natural", "griego" o "1 kg".</p>
+      </div>
+    </section>
+
+    <!-- ============ MAYORISTAS ============ -->
+    <section class="wholesale" id="mayoristas">
+      <div class="container wholesale__inner">
+        <div class="wholesale__text">
+          <span class="badge badge--gold">Venta mayorista</span>
+          <h2>A partir de 5 kg, precio mayorista</h2>
+          <p class="wholesale__note"><strong>Importante:</strong> la compra mayorista va <u>sin topping</u>.</p>
+          <a class="btn btn--wsp btn--auto" id="wholesaleBtn" href="#" target="_blank" rel="noopener">
+            <svg viewBox="0 0 32 32" width="22" height="22" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 1.9 6.6L3 29l7.1-2.1a12.9 12.9 0 0 0 5.9 1.4c7 0 12.7-5.600 12.700-12.500S23 3 16 3zm0 23.100c-1.900 0-3.700-.5-5.300-1.500l-.4-.2-4.200 1.200 1.300-4-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.500 9.800 10.200 5.200 16 5.200s10.500 4.600 10.500 10.300S21.800 26.100 16 26.100zm5.800-7.600c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.600 8.600 0 0 1-4.300-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.400 1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 1.800.8 2.600.9 3.500.7.600-.1 1.900-.8 2.100-1.500s.3-1.400.2-1.500-.3-.2-.6-.3z"/></svg>
+            Consultar por WhatsApp
+          </a>
+        </div>
+        <div class="wholesale__prices" id="wholesalePrices"></div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER / CONTACTO ============ -->
+  <footer class="footer" id="contacto">
+    <div class="container footer__inner">
+      <div>
+        <div class="logo logo--light">
+          <img class="logo__img logo__img--footer" src="imagenes/logo_aracno.png" alt="Aracno Food" width="64" height="64" loading="lazy">
+          <span class="logo__text">Aracno<strong>Food</strong></span>
+        </div>
+        <p class="footer__tag">Yogures naturales y griegos artesanales. Próximamente, más alimentos saludables.</p>
+      </div>
+      <div>
+        <h3>Contacto</h3>
+        <p><a id="footerWsp" href="#" target="_blank" rel="noopener">WhatsApp: 387 618-1583</a></p>
+        <p>Pedidos y consultas por WhatsApp</p>
+      </div>
+      <div>
+        <h3>Cómo comprar</h3>
+        <ol class="steps">
+          <li>Elegí tu yogur</li>
+          <li>Personalizalo con toppings</li>
+          <li>Enviá el pedido por WhatsApp</li>
+        </ol>
+      </div>
+    </div>
+    <div class="footer__copy">© <span id="year"></span> Aracno Food. Todos los derechos reservados.</div>
+  </footer>
+
+  <!-- ============ MODAL PERSONALIZACIÓN ============ -->
+  <div class="modal" id="modal" hidden>
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__panel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <header class="modal__head">
+        <h2 id="modalTitle">PERSONALIZA TU YOGUR</h2>
+        <button class="modal__close" type="button" data-close aria-label="Cerrar">×</button>
+      </header>
+
+      <div class="modal__body">
+
+        <fieldset class="field" data-field="units">
+          <legend>1. Elegí tus yogures <small>(podés combinar tipos y tamaños)</small></legend>
+          <div id="unitOptions"></div>
+        </fieldset>
+
+        <fieldset class="field" data-field="toppings">
+          <legend>2. Topping sin cargo <small>(1 por cada pote)</small></legend>
+          <div id="toppingUnits"></div>
+        </fieldset>
+
+        <fieldset class="field" data-field="extras">
+          <legend>3. ¿Querés más? <small>(podés sumar varios)</small></legend>
+          <label class="extra">
+            <input type="checkbox" id="extraCheck">
+            <span class="extra__box"></span>
+            <span class="extra__text">Agregar <strong>Toppings Extra</strong></span>
+            <span class="extra__price" id="extraPrice"></span>
+          </label>
+          <div class="extra-list" id="extraList" hidden></div>
+        </fieldset>
+
+        <fieldset class="field" data-field="delivery">
+          <legend>4. ¿Cómo querés recibirlo?</legend>
+          <div class="segmented" id="deliveryOptions"></div>
+        </fieldset>
+
+      </div>
+
+      <footer class="modal__foot">
+        <div class="total">
+          <div>
+            <span>Total estimado</span>
+            <small id="orderSummary"></small>
+          </div>
+          <strong id="totalPrice">$0</strong>
+        </div>
+        <p class="hint" id="orderHint" role="status" hidden></p>
+        <a class="btn btn--wsp" id="wspBtn" href="#" target="_blank" rel="noopener">
+          <svg viewBox="0 0 32 32" width="24" height="24" fill="currentColor" aria-hidden="true"><path d="M16 3C9 3 3.3 8.6 3.3 15.5c0 2.4.7 4.7 1.9 6.6L3 29l7.1-2.1a12.9 12.9 0 0 0 5.9 1.4c7 0 12.7-5.600 12.700-12.500S23 3 16 3zm0 23.100c-1.900 0-3.700-.5-5.300-1.500l-.4-.2-4.200 1.200 1.300-4-.3-.4a10.200 10.200 0 0 1-1.600-5.500C5.500 9.800 10.200 5.200 16 5.200s10.500 4.600 10.500 10.300S21.800 26.100 16 26.100zm5.800-7.600c-.3-.2-1.900-.9-2.200-1s-.5-.2-.7.200-.8 1-1 1.200-.4.200-.7.100a8.600 8.600 0 0 1-4.300-3.700c-.3-.6.300-.5.900-1.700.1-.2 0-.4 0-.5l-1-2.300c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.100-.8.400s-1 1-1 2.400 1 2.800 1.200 3c.1.200 2 3.100 4.900 4.300 1.800.8 2.600.9 3.500.7.600-.1 1.900-.8 2.100-1.500s.3-1.400.2-1.500-.3-.2-.6-.3z"/></svg>
+          REALIZAR PEDIDO POR WHATSAPP
+        </a>
+      </footer>
+    </div>
+  </div>
+
+  <!-- Símbolos SVG reutilizables -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="spider" viewBox="0 0 64 64">
+        <g fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M24 28 L8 16 L4 22"/><path d="M24 33 L6 32 L4 40"/><path d="M25 38 L9 50 L12 58"/><path d="M28 42 L20 58 L24 62"/>
+          <path d="M40 28 L56 16 L60 22"/><path d="M40 33 L58 32 L60 40"/><path d="M39 38 L55 50 L52 58"/><path d="M36 42 L44 58 L40 62"/>
+        </g>
+        <ellipse cx="32" cy="40" rx="10" ry="12" fill="currentColor"/><circle cx="32" cy="24" r="7" fill="currentColor"/>
+      </symbol>
+      <symbol id="jar-natural" viewBox="0 0 120 140">
+        <rect x="22" y="14" width="76" height="18" rx="6" fill="#2f7d4f"/>
+        <rect x="16" y="30" width="88" height="100" rx="14" fill="#fffdf6" stroke="#d9e6dc" stroke-width="3"/>
+        <rect x="26" y="44" width="68" height="72" rx="8" fill="#f4efe0"/>
+        <path d="M60 62l-9-6m9 6l9-6m-9 6l-12 6m12-6l12 6m-12-6v8" stroke="#2f7d4f" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="60" cy="86" rx="7" ry="9" fill="#2f7d4f"/>
+        <text x="60" y="108" text-anchor="middle" font-family="Nunito, sans-serif" font-size="9" font-weight="800" fill="#2f7d4f">NATURAL</text>
+      </symbol>
+      <symbol id="jar-griego" viewBox="0 0 120 140">
+        <rect x="22" y="14" width="76" height="18" rx="6" fill="#1f5f8b"/>
+        <rect x="16" y="30" width="88" height="100" rx="14" fill="#fffdf6" stroke="#d6e4ee" stroke-width="3"/>
+        <rect x="26" y="44" width="68" height="72" rx="8" fill="#eef4f8"/>
+        <path d="M60 62l-9-6m9 6l9-6m-9 6l-12 6m12-6l12 6m-12-6v8" stroke="#1f5f8b" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <ellipse cx="60" cy="86" rx="7" ry="9" fill="#1f5f8b"/>
+        <text x="60" y="108" text-anchor="middle" font-family="Nunito, sans-serif" font-size="9" font-weight="800" fill="#1f5f8b">GRIEGO</text>
+      </symbol>
+    </defs>
+  </svg>
+
+  <script src="script.js"></script>
+</body>
+</html>
